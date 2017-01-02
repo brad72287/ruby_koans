@@ -14,15 +14,15 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  begin
-    raise TriangleError if a<=0 || b<=0 || c<=0
-    raise TriangleError if (a+b) <= c || (b+c) <= a || (a+c) <= b
-    return :equilateral if a==b && b==c
-    return :isosceles if a==b || b==c || a==c
-    return :scalene
-  rescue TriangleError
-    
-  end
+    if a<=0 || b<=0 || c<=0 || (a+b) <= c || (b+c) <= a || (a+c) <= b
+      puts "ARE WE GETTING HERE?????"
+      fail TriangleError, "side can't be zero"
+           TriangleError
+    else
+      return :equilateral if a==b && b==c
+      return :isosceles if a==b || b==c || a==c
+      return :scalene
+    end
 end
 
 # Error class used in part 2.  No need to change this code.
